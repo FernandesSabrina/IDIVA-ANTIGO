@@ -12,6 +12,13 @@ const routes: Routes = [
     path: 'edit-song/:id',
     loadChildren: () => import('./edit-song/edit-song.module').then(m => m.EditSongPageModule)
   },
+  {
+    path: 'pessoas',
+    loadChildren: () => import('./cadastros/pessoas/pessoas.module').then( m => m.PessoasPageModule)
+  }
+ 
+
+
 ];
 
 @NgModule({
