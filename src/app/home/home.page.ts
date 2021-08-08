@@ -15,83 +15,102 @@ export class HomePage implements OnInit {
   initialRegister = false;
   currentUser = 'Idiva';
   newMessage = '';
+  showInputName: boolean = false;
+  showInputCpf: boolean = false;
+  showInputBirthDate: boolean = false;
+  showInputCep: boolean = false;
+  
 
-  personalForm: FormGroup;
+  peopleForm: FormGroup;
+  people = {
+    fullName: '',
+    birthDate: '',
+    
+  }
 
 
   messages = [];
-
-  
- 
- // @ViewChild(IonContent) content : IonContent;
 
   constructor(
     private songService: SongService,
     public fb: FormBuilder
   ) {
-    this.personalForm = this.fb.group({
+
+    this.peopleForm = this.fb.group({
       name: [''],
-      birthDate: ['']
+      birthDate: [''],
+      cpf: [''],
+      cep: ['']
     });
   }
 
-  sendMessage(){
-
-
-    this.messages.push({
-      user: 'Brenda',
-      createdAt: new Date().getTime(),
-      msg: this.newMessage
-    });
-
-    if(this.newMessage){
-      console.log("Não tá vazio");
-      this.newMessage = '';
-
-      this.messages.push({
-        user: 'Idiva',
-        createdAt: new Date().getTime(),
-        msg: "Digite o cep"
-      });
-    }
-
-    
-
-   
-
-    //this.content.scrollToBottom(200);
-  }
-
-  startRegistration(){
-    this.initialRegister = true;
-    this.messages.push({
-      user: 'Idiva',
-      createdAt: new Date().getTime(),
-      msg: 'Digite seu CPF'
-    });
-  }
-
-  Songs: any = [];
-
-  
 
   ngOnInit() { }
 
-  ionViewDidEnter() {
-    this.songService.getSongList().subscribe((res) => {
-      console.log(res)
-      this.Songs = res;
-    })
+  
+  startRegistration(){
+    this.initialRegister = true;
+    this.showInputName = true;
+    this.messages.push({
+      user: 'Idiva',
+      createdAt: new Date().getTime(),
+      msg: 'Digite seu nome completo'
+    });
   }
 
-  deleteSong(song, i) {
-    if (window.confirm('Do you want to delete user?')) {
-      this.songService.deleteSong(song._id)
-        .subscribe(() => {
-          this.Songs.splice(i, 1);
-          console.log('Song deleted!')
-        }
-        )
-    }
+
+  sendMessageName(){
+    this.showInputName = false;
+    this.showInputCpf = true;
+
+    this.showMessageUser(this.peopleForm.get('name').value);
+    this.showMessageIdiva("Digite seu CPF");
   }
+
+  sendMessageCpf(){
+    this.showInputCpf = false;
+    this.showInputBirthDate = true;
+
+    this.showMessageUser(this.peopleForm.get('cpf').value);
+    this.showMessageIdiva("Digite sua data de nascimento (DD/MM/YYY)");    
+  }
+
+  sendMessageBirthDate(){
+    this.showInputBirthDate = false;
+    this.showInputCep = true;
+
+    this.showMessageUser(this.peopleForm.get('birthDate').value);
+    this.showMessageIdiva("Digite seu CEP");    
+  }
+
+  sendMessageCep(){
+    this.showInputBirthDate = false;
+    this.showInputCep = true;
+
+    this.showMessageUser(this.peopleForm.get('cep').value);
+    this.showMessageIdiva("Muito Obrigada! Finalizaremos seu cadastro...");    
+  }
+
+  showMessageUser(message: string){
+    this.messages.push({
+      user: 'Brenda',
+      createdAt: new Date().getTime(),
+      msg: message
+    });
+  }
+
+
+   showMessageIdiva(message: string){
+    this.messages.push({
+      user: 'Idiva',
+      createdAt: new Date().getTime(),
+      msg: message
+    });
+  }
+
+
+  
+
+  
+
 }

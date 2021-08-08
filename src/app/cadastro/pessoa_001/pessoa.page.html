@@ -1,0 +1,517 @@
+<!--<ion-header>
+  <ion-toolbar class="ios hydrated">
+    <ion-title class="ios title-ios hydrated">Información y dirección sobre la vacunación</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-content>
+ <form [formGroup]="pessoaForm" (ngSubmit)="onFormSubmit()">
+
+    
+    
+    <!--Apresentação e nome completo-->
+    <div class="css-larg-nome" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; ¡Hola! Mi nombre es <b>Idiva.</b>
+              </p>
+              <p>&nbsp;&nbsp; Estou aqui para te orientar sobre a vacinação de forma ordenada e a evitar
+                aglomerações.</p>
+              <p>&nbsp;&nbsp; Como todos sabem estamos passando por esse momento delicado que é a pandemia da covid-19 
+                &nbsp;&nbsp; e buscamos a imunização de todos os cidadãos.</p>
+              <p>&nbsp;&nbsp; Para isso, digite seu <b>nome completo.</b></p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; Nome Completo</b>
+                &nbsp;&nbsp;
+                <ion-input  type="text" formControlName="nome" [(ngModel)]="cadastro.nome" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!--Data de nascimento-->
+   <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Digite sua <b>Data de Nascimento</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; Data de Nascimento</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="dataNascimento" type="text" [(ngModel)]="cadastro.dataNascimento" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!----------------------Cpf--------------------------->
+    <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora informe o seu <b>CPF</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" [(ngModel)]="cadastro.cpf" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+    <!----------------------Pais--------------------------->
+    <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Selecione o <b>país</b> em qual se encontra.
+              </p>
+              <div class="css-1z0j9gh">
+                <button class="jss51 jss25 jss36 jss37 jss39 jss40" tabindex="0" type="button" (click)="selecionarColombia()"><span
+                    class="jss26">Colômbia</span><span class="jss54"></span></button>
+                <button class="jss51 jss25 jss36 jss37 jss39 jss40" tabindex="0" type="button" (click)="selecionarBrasil()"><span
+                    class="jss26">Brasil</span><span class="jss54"></span></button> 
+              </div> 
+            </div>
+          </span>
+        </div> 
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; País</b>
+                
+                <b>
+                  &nbsp;&nbsp; 
+                  <ion-input type="text" formControlName="pais" [(ngModel)]="cadastro.bairro.cidade.estado.pais.nomePais" [disabled]="true"></ion-input>
+              </b>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>-->
+
+    <!----------------------Colocar aqui o Estado--------------------------->
+    <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora me informe o seu <b>Estado</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!----------------------Colocar aqui o Cidade--------------------------->
+   <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora me informe o seu <b>CPF</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!----------------------Colocar aqui o Bairro--------------------------->
+    <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora me informe o seu <b>CPF</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!----------------------Colocar aqui o Rua--------------------------->
+    <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora me informe o seu <b>CPF</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!----------------------Colocar aqui o Numero da casa--------------------------->
+    <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora me informe o seu <b>CPF</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+    <!----------------------Colocar aqui colocar o cep--------------------------->
+   <div class="css-alinha-left" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <ion-avatar slot="start">
+          <ion-img src="/assets/idiva.jpg"></ion-img>
+        </ion-avatar>
+        <div direction="left" tabindex="0" class="css-background-left">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+          <span>
+            <div>
+              <p>&nbsp;&nbsp; Agora me informe o seu <b>CPF</b>
+              </p>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="css-alinha-right" style="opacity: 1; transform-origin: 50% 0% 0px; transform: none;">
+      <div class="css-alinha-avatar">
+        <div direction="right" tabindex="0" class="css-background-right">
+          <span>
+            <div>
+              <p>
+                <b>&nbsp;&nbsp; CPF</b>
+                &nbsp;&nbsp;
+                <ion-input formControlName="cpf" type="text" required></ion-input>
+              </p>
+            </div>
+          </span>
+
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+            </path>
+          </svg>
+        </div>
+        <ion-avatar slot="end">
+          <ion-img src="/assets/cidadao.jpg"></ion-img>
+        </ion-avatar>
+      </div>
+    </div>
+
+  </form>
+
+</ion-content>

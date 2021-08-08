@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { PessoaPageRoutingModule } from './pessoa-routing.module';
-
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PessoaPage } from './pessoa.page';
+import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
-    PessoaPageRoutingModule
+    RouterModule.forChild([
+      {
+        path: '',
+        component: PessoaPage
+      }
+    ]),
+    AutosizeModule,
+    ReactiveFormsModule
   ],
   declarations: [PessoaPage]
 })
-export class PessoaPageModule {}
+
+export class PessoaPageModule { }

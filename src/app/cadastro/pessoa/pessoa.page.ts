@@ -1,104 +1,119 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { SongService } from 'src/app/shared/song.service';
-import { Cidadao } from 'src/modelo/cidadao';
 
 @Component({
   selector: 'app-pessoa',
-  templateUrl: './pessoa.page.html',
-  styleUrls: ['./pessoa.page.scss'],
+  templateUrl: 'pessoa.page.html',
+  styleUrls: ['pessoa.page.scss'],
 })
+
 export class PessoaPage implements OnInit {
 
-  pessoaForm: FormGroup;
-
-  cadastro: Cidadao = new Cidadao();
-
-  constructor(
-    private songAPI: SongService,
-    private router: Router,
-    public formBuilder: FormBuilder,
-    private zone: NgZone
-  ) {
-    this.pessoaForm = this.formBuilder.group({
-      nome: [''],
-      cpf: [''],
-      dataNascimento: [''],
-      cep: [''],
-      pais: ['']
-    })
-    this.iniciaModal();
-  }
-
-  messages: [
-    {
-      user: 'Idiva',
-      message: 'Holaa',
-      createdAt: 1554090856000
-    },
-    {
-      user: 'Idiva',
-      message: 'CPF',
-      createdAt: 1554090856000
-    },
-    {
-      user: 'Idiva',
-      message: 'Data de Nascimento',
-      createdAt: 1554090856000
-    }
-
-  ];
-
-  currentUser =  'Idiva';
-
-  ngOnInit() {
-  }
-
-
-  sendMessage(){
-    this.messages.push()
-  }
-
-  onFormSubmit() {
-    if (!this.pessoaForm.valid) {
-      return false;
-    } else {
-      this.songAPI.addSong(this.pessoaForm.value)
-        .subscribe((res) => {
-          this.zone.run(() => {
-            console.log(res)
-            this.pessoaForm.reset();
-            this.router.navigate(['/home']);
-          })
-        });
-    }
-  }
-
-
-  iniciaModal() {
-    this.carregarBairro();
-    this.carregarCidade();
-    this.carregarEstado();
-  }
+  initialMessage = '¡Hola! Comenzaremos su registro para la vacunación covid-19. No se preocupe, con unas pocas preguntas definiremos el mejor lugar y fecha para que pueda vacunarse de manera segura.';
+  initialRegister = false;
+  currentUser = 'Idiva';
+  user = '';
+  newMessage = '';
+  showInputName: boolean = false;
+  showInputCpf: boolean = false;
+  showInputBirthDate: boolean = false;
+  showInputCep: boolean = false;
+  showButtonFinishRegistration: boolean = false;
   
-  selecionarColombia() {
-    this.cadastro.bairro.cidade.estado.pais.nomePais = "Colômbia"; 
-    console.log(this.cadastro, "cadastro ***")
+
+  peopleForm: FormGroup;
+  people = {
+    fullName: '',
+    birthDate: '',
+    
   }
 
-  selecionarBrasil() {
-    this.cadastro.bairro.cidade.estado.pais.nomePais = "Brasil"; 
+
+  messages = [];
+
+  constructor(public fb: FormBuilder) {
+
+    this.peopleForm = this.fb.group({
+      name: [''],
+      birthDate: [''],
+      cpf: [''],
+      cep: ['']
+    });
   }
 
-  carregarBairro() {
-    console.log("CarregarBairro  ** Cria array com dados de suposição")
-  }
-  carregarCidade() {
 
+  ngOnInit() { }
+
+  
+  startRegistration(){
+    this.initialRegister = true;
+    this.showInputName = true;
+    this.messages.push({
+      user: 'Idiva',
+      createdAt: new Date().getTime(),
+      msg: 'Primero, ingrese su NOMBRE COMPLETO.'
+    });
   }
 
-  carregarEstado() {
 
+  sendMessageName(){
+    this.showInputName = false;
+    this.showInputCpf = true;
+
+    this.user = this.peopleForm.get('name').value;
+
+    this.showMessageUser(this.peopleForm.get('name').value);
+    this.showMessageIdiva("Gracias. Ahora tu CPF");
   }
+
+  sendMessageCpf(){
+    this.showInputCpf = false;
+    this.showInputBirthDate = true;
+
+    this.showMessageUser(this.peopleForm.get('cpf').value);
+    this.showMessageIdiva("SU FECHA DE NACIMIENTO en el formato (DD / MM / AAAA)");    
+  }
+
+  sendMessageBirthDate(){
+    this.showInputBirthDate = false;
+    this.showInputCep = true;
+
+    this.showMessageUser(this.peopleForm.get('birthDate').value);
+    this.showMessageIdiva("Y finalmente, tu CÓDIGO POSTAL");    
+  }
+
+  sendMessageCep(){
+    this.showInputCep = false;
+    this.showButtonFinishRegistration = true;
+
+
+    this.showMessageUser(this.peopleForm.get('cep').value);
+    this.showMessageIdiva("¡Muy bien! haga clic en el botón de abajo para finalizar su registro y preparar todo para su vacunación");   
+  }
+
+  showMessageUser(message: string){
+    this.messages.push({
+      user: this.user,
+      createdAt: new Date().getTime(),
+      msg: message
+    });
+  }
+
+
+   showMessageIdiva(message: string){
+    this.messages.push({
+      user: 'Idiva',
+      createdAt: new Date().getTime(),
+      msg: message
+    });
+  }
+
+  finish(){
+
+}
+
+  
+
+  
+
 }

@@ -5,24 +5,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   {
-    path: 'add-song',
-    loadChildren: () => import('./add-song/add-song.module').then(m => m.AddSongPageModule)
-  },
-  {
-    path: 'edit-song/:id',
-    loadChildren: () => import('./edit-song/edit-song.module').then(m => m.EditSongPageModule)
-  },
-  {
     path: 'pessoa',
     loadChildren: () => import('./cadastro/pessoa/pessoa.module').then( m => m.PessoaPageModule)
-  },
-  {
-    path: 'cadastro',
-    loadChildren: () => import('./cadastros/cadastro.module').then( m => m.CadastroPageModule)
   }
-
- 
-
 
 ];
 

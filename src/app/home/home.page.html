@@ -7,63 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-
-    <ion-row>
-      <ion-col size="9" *ngIf="initialMessage != ''" class="message other-message">
-        <b>{{currentUser}}</b><br>
-        <span>{{initialMessage}}</span>
-        <div class="time" text-right><br>
-        </div>
-        <div>
-          <ion-button expand="block" fill="clear" color="primary" (click)="startRegistration()">
-            <span>Cadastrar-se</span>
-          </ion-button>
-        </div>
-      </ion-col>
-    </ion-row>
-    
-    <div *ngIf="initialRegister">
-    <ion-row *ngFor="let message of messages">
-      <ion-col size="9" *ngIf="currentUser == message.user" class="message other-message">
-        <b>{{message.user}}</b><br>
-        <span>{{message.msg}}</span>
-        <div class="time" text-right><br>
-          {{message.createdAt | date:'short'}}
-        </div>
-      </ion-col>
-
-      <ion-col offset="3" size="9" *ngIf="currentUser != message.user" class="message my-message">
-        <b>{{message.user}}</b><br>
-        <span>{{message.msg}}</span>
-        <div class="time" text-right><br>
-          {{message.createdAt | date:'short'}}
-        </div>
-      </ion-col>
-    </ion-row>
-  </div>
-  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/pessoa">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar color="ligth">
-    <ion-row align-items-center no-padding>
-      <ion-col size="10">
-        <!--<form [formGroup]="pessoaForm" (ngSubmit)="onFormSubmit()">
-          <textarea autosize maxRows="3" [(ngModel)]="newMessage" class="message-input"></textarea>-->
-          <!--<ion-input [(ngModel)]="newMessage" class="message-input" formControlName="name"></ion-input>
-          <ion-input [(ngModel)]="newMessage" class="message-input" formControlName="cpf"></ion-input>
-          <ion-input [(ngModel)]="newMessage" class="message-input" formControlName="name"></ion-input>-->
-          <ion-input [(ngModel)]="newMessage" class="message-input"></ion-input>
-        <!----</form>-->
-      </ion-col>
-      <ion-col size="2">
-        <ion-button expand="block" fill="clear" color="primary" [disabled]="newMessage == ''"
-                    class="message-button" (click)="sendMessage()">
-          <ion-icon name="paper-plane-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-footer>
 
