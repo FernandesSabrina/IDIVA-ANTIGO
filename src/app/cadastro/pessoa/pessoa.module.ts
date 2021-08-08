@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PessoasPageRoutingModule } from './pessoas-routing.module';
+import { PessoaPageRoutingModule } from './pessoa-routing.module';
 
-import { PessoasPage } from './pessoas.page';
+import { PessoaPage } from './pessoa.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { PessoasPage } from './pessoas.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    PessoasPageRoutingModule
+    PessoaPageRoutingModule
   ],
-  declarations: [PessoasPage]
+  declarations: [PessoaPage]
 })
-export class PessoasPageModule {}
+export class PessoaPageModule {}

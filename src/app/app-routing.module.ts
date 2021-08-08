@@ -13,11 +13,12 @@ const routes: Routes = [
     loadChildren: () => import('./edit-song/edit-song.module').then(m => m.EditSongPageModule)
   },
   {
-    path: 'pessoas',
-    loadChildren: () => import('./cadastros/pessoas/pessoas.module').then( m => m.PessoasPageModule)
-  },  {
+    path: 'pessoa',
+    loadChildren: () => import('./cadastro/pessoa/pessoa.module').then( m => m.PessoaPageModule)
+  },
+  {
     path: 'cadastro',
-    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+    loadChildren: () => import('./cadastros/cadastro.module').then( m => m.CadastroPageModule)
   }
 
  
