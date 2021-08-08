@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: 'pessoa',
     loadChildren: () => import('./cadastro/pessoa/pessoa.module').then( m => m.PessoaPageModule)
+  },  {
+    path: 'pessoa-detail',
+    loadChildren: () => import('./pessoa-detail/pessoa-detail.module').then( m => m.PessoaDetailPageModule)
   }
+
 
 ];
 

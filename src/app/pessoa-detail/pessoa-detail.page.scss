@@ -1,0 +1,39 @@
+.css-alinha-left {
+    display: flex;
+    flex-shrink: 0;
+    padding: 10px 20px 10px 20px;
+    align-self: flex-start;
+}
+.css-background-left {
+    transition: all 0.2s ease-in-out 0s;
+    display: flex;
+    flex: 1 1 0%;
+    position: relative;
+    align-self: unset;
+    margin-left: 20px;
+    border-left: 12px solid rgb(214, 214, 214);
+    background: rgb(237, 237, 237);
+    color: rgb(66, 66, 66);
+    border-radius: 5px;
+    min-width: 140px;
+}
+.css-alinha-avatar {
+    display: flex;
+    flex: 1 0 0%;
+    margin: 10px 0px;
+    align-self: center;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+}
+.css-background-left > svg {
+    transition: color 0.2s ease-in-out 0s;
+    color: rgb(214, 214, 214);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -32px;
+    font-size: 40px;
+}

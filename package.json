@@ -1,5 +1,5 @@
 {
-  "name": "ionic-angular-crud-app",
+  "name": "IDIVA",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -56,5 +56,5 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   },
-  "description": "An Ionic project"
+  "description": "Información y dirección sobre la vacunación. "
 }

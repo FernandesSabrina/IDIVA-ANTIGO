@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pessoa',
@@ -31,7 +33,10 @@ export class PessoaPage implements OnInit {
 
   messages = [];
 
-  constructor(public fb: FormBuilder) {
+  constructor(
+    public fb: FormBuilder,
+    private modalCtrl: ModalController,
+    private router: Router) {
 
     this.peopleForm = this.fb.group({
       name: [''],
@@ -109,7 +114,7 @@ export class PessoaPage implements OnInit {
   }
 
   finish(){
-
+    this.router.navigate(['/pessoa-detail'], { queryParams: { name: this.user, cpf: this.peopleForm.get('cpf').value } });
 }
 
   

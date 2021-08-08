@@ -31,11 +31,11 @@
        <!--<div class="time" text-right><br>
           {{message.createdAt | date:'short'}}
         </div>-->
-
-        <ion-button expand="block" fill="clear" color="white" (click)="finish()"
-                    class="message-button"  *ngIf="showButtonFinishRegistration">
-         <span>Terminar</span>
-        </ion-button>
+        <div>
+          <ion-button expand="block" fill="clear" class="button-initial" *ngIf="showButtonFinishRegistration" routerLink="/pessoa-detail">
+            <span>Terminar</span>
+          </ion-button>
+        </div>
       </ion-col>
 
       <ion-col offset="3" size="9" *ngIf="currentUser != message.user" class="message my-message">
