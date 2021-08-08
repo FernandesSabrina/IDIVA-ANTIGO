@@ -31,7 +31,33 @@ export class PessoaPage implements OnInit {
     this.iniciaModal();
   }
 
+  messages: [
+    {
+      user: 'Idiva',
+      message: 'Holaa',
+      createdAt: 1554090856000
+    },
+    {
+      user: 'Idiva',
+      message: 'CPF',
+      createdAt: 1554090856000
+    },
+    {
+      user: 'Idiva',
+      message: 'Data de Nascimento',
+      createdAt: 1554090856000
+    }
+
+  ];
+
+  currentUser =  'Idiva';
+
   ngOnInit() {
+  }
+
+
+  sendMessage(){
+    this.messages.push()
   }
 
   onFormSubmit() {
@@ -58,6 +84,7 @@ export class PessoaPage implements OnInit {
   
   selecionarColombia() {
     this.cadastro.bairro.cidade.estado.pais.nomePais = "Colômbia"; 
+    console.log(this.cadastro, "cadastro ***")
   }
 
   selecionarBrasil() {

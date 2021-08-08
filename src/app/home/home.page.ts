@@ -8,12 +8,42 @@ import { SongService } from './../shared/song.service';
 })
 
 export class HomePage implements OnInit {
-  Songs: any = [];
+
+  initialMessage = '¡Hola! Mi nombre es Idiva. Seja bem-vindo. Aqui você pode se cadastrar para tomar a vacida contra a covid-19.';
+  currentUser = 'Idiva';
+  newMessage = '';
+  messages = [
+    {
+      user: 'Idiva',
+      createdAt: 1554090856000,
+      msg : '¡Hola! Mi nombre es Idiva. Seja bem-vindo. Aqui você pode se cadastrar para tomar a vacida contra a covid-19.'
+    }    
+  ];
+
+  
+ 
+ // @ViewChild(IonContent) content : IonContent;
 
   constructor(
     private songService: SongService
   ) {
   }
+
+  sendMessage(){
+    this.messages.push({
+      user: 'Brenda',
+      createdAt: new Date().getTime(),
+      msg: this.newMessage
+    });
+
+    this.newMessage = '';
+
+    //this.content.scrollToBottom(200);
+  }
+
+  Songs: any = [];
+
+  
 
   ngOnInit() { }
 
